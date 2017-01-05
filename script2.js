@@ -312,10 +312,11 @@
                             .text('Empty Cell, detail view not supported');
 
                         // remove
-                        setTimeout(function () {
-                            d3.select('.notification').remove();
-                        }, 3000);
+
                     }
+                    setTimeout(function () {
+                        d3.select('.notification').remove();
+                    }, 4000);
                 }
             })
             .style('fill', colors[0])
