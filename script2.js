@@ -151,7 +151,6 @@
         }
 
         createMatrix(data, reqCountMatrix);
-git
 
         let svg = d3.select("#chart")
             .append("svg")
