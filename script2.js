@@ -293,7 +293,29 @@
                     }
                     console.log(detailedData);
                     d3.select('svg').remove();
+                    d3.select('.notification').remove();
                     draw(detailedData, true);
+                }
+                else{
+                    d3.select('.notification').remove();
+                    if(detailed){
+
+                        d3.select('#message')
+                            .append('p')
+                            .attr('class', 'notification')
+                            .text(' Already in detail view, press back to go to main graph');
+                    }else{
+
+                        d3.select('#message')
+                            .append('p')
+                            .attr('class', 'notification')
+                            .text('Empty Cell, detail view not supported');
+
+                        // remove
+                        setTimeout(function () {
+                            d3.select('.notification').remove();
+                        }, 3000);
+                    }
                 }
             })
             .style('fill', colors[0])
