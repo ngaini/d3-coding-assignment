@@ -3,7 +3,7 @@
             top: 50,
             right: 0,
             bottom: 70,
-            left: 150
+            left: 180
         },
         width = 960 - margin.left - margin.right,
         height = 430 - margin.top - margin.bottom,
@@ -58,15 +58,18 @@
     let draw = function( data , detailed = false){
         console.log(detailed);
 
+        let scrLabel, destLabel;
         // show the back button for detailed view else hide it
         if(detailed){
             d3.select('.Back').classed('hidden', false);
+            srcLabel = data[0].src;
+            destLabel = data[0].dest;
         }
         else{
             d3.select('.Back').classed('hidden', true);
-
+            srcLabel = null;
+            destLabel = null;
         }
-
 
 
         let   sourceLabels =[],
@@ -167,7 +170,13 @@
             .enter()
             .append('text')
             .text(function(d){
-                return d;
+                if(!(destLabel === undefined || destLabel === null) ){
+                    return destLabel+' : '+d;
+                }
+                else{
+                    return d;
+
+                }
             })
             .attr('x', 0)
             .attr('y', function(d, i){
@@ -186,7 +195,13 @@
                 .enter()
                 .append('text')
                 .text(function(d){
-                    return d;
+                    if(!(srcLabel === undefined || srcLabel === null) ){
+                        return srcLabel+' : '+d;
+                    }
+                    else{
+                        return d;
+
+                    }
                 })
                 .attr('x', function (d,i) {
                         return i*gridColumnSize;
