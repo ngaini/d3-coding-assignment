@@ -125,7 +125,7 @@
             for( let i = 0; i< destinationLabels.length; i++) {
                 let subarray = [];
                 for(let j = 0; j< sourceLabels.length; j++){
-                    subarray.push(-1);
+                    subarray.push(0);
                 }
                 array.push(subarray);
             }
