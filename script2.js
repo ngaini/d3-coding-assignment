@@ -280,8 +280,7 @@
 
 
             .on('click', function(d, col , row){
-                if(!detailed){
-                    console.log('pointer at row'+row + ' col '+col);
+                if(!detailed && d > 0){
                     let src = sourceLabels[col];
                     let dest = destinationLabels[row];
                     let detailedData = [];
